@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="styles/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scales=1.0">
+    <link rel="icon" type="images/png" href="../images/Screenshot 2025-02-04 082940.png">
+    <link rel="stylesheet" href="../bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/css/bootstrap.min.css"> <!-- Bootstrap Link-->
+    
+    <title>Accounts</title>
+</head>
+
+<body>
+    <div class="dashboard">
+        <div class="sidebar">
+            <div class="heads"> A C C O U N T S
+                <img src="../images/lgo (1).png" alt="logo">
+            </div>
+            <ul class="menu">
+                <li>
+                    <a href="index.html">
+                        <img src="../images/dashboard.png" alt="dashboard">
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="products.html">
+                        <img src="../images/products.png" alt="dashboard">
+                        <span>Products</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="reports.html">
+                        <img src="../images/reports.png" alt="dashboard">
+                        <span>Reports</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="accounts.html" class="active">
+                        <img src="../images/avatar.png" alt="dashboard">
+                        <span>Accounts</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="settings.html">
+                        <img src="../images/cog.244x256.png" alt="dashboard">
+                        <span>Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../login.html">
+                        <img src="../images/logout.png" alt="dashboard">
+                        <span>Log Out</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        <!-- Account Area -->
+        <div class="main-content">
+
+            <div class="topbar">
+                <div class="search">
+                    <input type="text" placeholder="Search. . . -">
+                </div>
+
+                <div class="user-profile">
+                    <span>Butch Sagayoc</span>
+                    <img src="../images/Screenshot 2025-02-04 084635.png" alt="">
+
+                </div>
+            </div>
+               <!-- Content Area -->
+               <main role="main" class="col-md-12 px-md-12" style="margin-top: 10px;">
+                <div class="row">
+                    <!-- First Column: Add User Form -->
+                    <div class="col-md-3">
+                        <div class="card" style="width: 100%;">
+                            <div class="card-header">
+                                ADD USER
+                            </div>
+                            <div class="card-body">
+                                <form id="userInfoForm">
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1"><i class="mdi mdi-id-card"></i></span>
+                                        <input type="number" class="form-control" required id="stud_id" placeholder="Student ID" aria-label="Student ID" aria-describedby="basic-addon1">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1"><i class="mdi mdi-account"></i></span>
+                                        <input type="text" class="form-control" id="fname" placeholder="First Name" aria-label="First Name" aria-describedby="basic-addon1">
+                                        <input type="text" class="form-control" id="lname" placeholder="Last Name" aria-label="Last Name" aria-describedby="basic-addon1">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1"><i class="mdi mdi-email"></i></span>
+                                        <input type="email" class="form-control" id="email" placeholder="Email" aria-label="Email" aria-describedby="basic-addon1" required>
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1"><i class="mdi mdi-counter"></i></span>
+                                        <input type="number" class="form-control" id="age" placeholder="Age" aria-label="Age" aria-describedby="basic-addon1">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1"><i class="mdi mdi-marker"></i></span>
+                                        <input type="text" class="form-control" id="address" placeholder="Address" aria-label="Address" aria-describedby="basic-addon2">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <button style="width: 100%; border-radius: 5px; margin-right: 20px;" class="btn btn-primary" type="button" id="addUserBtn" onclick="addUser()"> Add User</button>
+                                        <button style="width: 100%; border-radius: 5px; margin-right: 20px; display: none;" class="btn btn-primary" type="button" id="updateUserBtn" onclick="updateUser()"> Update User</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+    
+                    <!-- Second Column: User Table -->
+                    <div class="col-md-9">
+                        <div style="margin-top: 20px;" id="liveAlert"></div>
+                        <div class="card" style="width:100%;">
+                            <div class="card-body">
+                                <input type="text" style="width: 100%; margin-top: 20px; margin-bottom: 20px;" class="form-control" id="search" placeholder="Search ..." aria-label="Search" aria-describedby="basic-addon2">
+                                <table id="userTable" class="table table-stripped">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">ID Number</th>
+                                            <th scope="col">First Name</th>
+                                            <th scope="col">Last Name</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Age</th>
+                                            <th scope="col">Address</th>
+                                            <th scope="col">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="userTableBody" style="font-size: 13px;">
+                                        <!--- this is where the data will be added -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+            </div>
+        </div>
+    
+    
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script>
+            // Array to store user data
+            let users = [];
+    
+            function addUser() {
+                let stud_id = $("#stud_id").val();
+                let fname = $("#fname").val();
+                let lname = $("#lname").val();
+                let email = $("#email").val();
+                let age = $("#age").val();
+                let address = $("#address").val();
+    
+                if (stud_id !=='' && fname !== '') {
+                    // Create user object
+                    let user = {
+                        stud_id: stud_id,
+                        fname: fname,
+                        lname: lname,
+                        email: email,
+                        age: age,
+                        address: address
+                    };
+    
+                    // Add to users array
+                    users.push(user);
+                    
+                    // Refresh table
+                    refreshUserTable();
+                    
+                    // Show success message
+                    $("#liveAlert").html('<div class="alert alert-success alert-dismissible fade show">User added successfully!<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                    
+                    // Clear form
+                    clearForm();
+                } else {
+                    $("#liveAlert").html('<div class="alert alert-danger alert-dismissible fade show">Student ID and First Name are required!<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                }
+            }
+    
+            function refreshUserTable() {
+                $("#userTableBody").empty();
+                
+                users.forEach((user, index) => {
+                    let newRow = $(`
+                    <tr data-index="${index}">
+                        <td>${user.stud_id}</td>
+                        <td>${user.fname}</td>
+                        <td>${user.lname}</td>
+                        <td>${user.email}</td>
+                        <td>${user.age}</td>
+                        <td>${user.address}</td>
+                        <td>
+                            <button class="btn btn-warning btn-sm edit-btn"><i class="mdi mdi-pencil"></i></button>
+                            <button class="btn btn-danger btn-sm delete-btn"><i class="mdi mdi-delete"></i></button>
+                        </td>
+                    </tr>
+                    `);
+                    
+                    $("#userTableBody").append(newRow);
+                });
+            }
+    
+            function clearForm() {
+                $("#stud_id").val("");
+                $("#fname").val("");
+                $("#lname").val("");
+                $("#email").val("");
+                $("#age").val("");
+                $("#address").val("");
+                
+                // Show add button and hide update button
+                $("#addUserBtn").show();
+                $("#updateUserBtn").hide();
+                $("#editingRowIndex").val("");
+            }
+    
+            function editUser(index) {
+                let user = users[index];
+                
+                // Fill form with user data
+                $("#stud_id").val(user.stud_id);
+                $("#fname").val(user.fname);
+                $("#lname").val(user.lname);
+                $("#email").val(user.email);
+                $("#age").val(user.age);
+                $("#address").val(user.address);
+                
+                // Store the index of the user being edited
+                $("#editingRowIndex").val(index);
+                
+                // Show update button and hide add button
+                $("#addUserBtn").hide();
+                $("#updateUserBtn").show();
+            }
+    
+            function updateUser() {
+                let index = $("#editingRowIndex").val();
+                if (index === "") return;
+                
+                let stud_id = $("#stud_id").val();
+                let fname = $("#fname").val();
+                let lname = $("#lname").val();
+                let email = $("#email").val();
+                let age = $("#age").val();
+                let address = $("#address").val();
+    
+                if (stud_id !=='' && fname !== '') {
+                    // Update user in array
+                    users[index] = {
+                        stud_id: stud_id,
+                        fname: fname,
+                        lname: lname,
+                        email: email,
+                        age: age,
+                        address: address
+                    };
+                    
+                    // Refresh table
+                    refreshUserTable();
+                    
+                    // Show success message
+                    $("#liveAlert").html('<div class="alert alert-success alert-dismissible fade show">User updated successfully!<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                    
+                    // Clear form
+                    clearForm();
+                } else {
+                    $("#liveAlert").html('<div class="alert alert-danger alert-dismissible fade show">Student ID and First Name are required!<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                }
+            }
+    
+            function deleteUser(index) {
+                if (confirm("Are you sure you want to delete this user?")) {
+                    // Remove user from array
+                    users.splice(index, 1);
+                    
+                    // Refresh table
+                    refreshUserTable();
+                    
+                    // Show success message
+                    $("#liveAlert").html('<div class="alert alert-success alert-dismissible fade show">User deleted successfully!<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button></div>');
+                }
+            }
+    
+            $(document).ready(function () {  
+                // Search functionality
+                $("#search").on("keyup", function(){
+                    let value = $(this).val().toLowerCase();
+                    $("#userTableBody tr").filter(function () {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                    });
+                });
+                
+                // Event delegation for edit and delete buttons
+                $("#userTableBody").on("click", ".edit-btn", function() {
+                    let row = $(this).closest("tr");
+                    let index = row.data("index");
+                    editUser(index);
+                });
+                
+                $("#userTableBody").on("click", ".delete-btn", function() {
+                    let row = $(this).closest("tr");
+                    let index = row.data("index");
+                    deleteUser(index);
+                });
+            });
+        </script>
+  
+
+
+</body>
+
+</html>

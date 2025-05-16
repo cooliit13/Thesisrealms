@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+}
+.dashboard{
+    display: flex;
+    height: 100vh;
+
+}
+.sidebar{
+    width: 20%;
+    background-color: rgb(203, 230, 246);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    color: white;
+    padding: 20px;
+}
+.sidebar .head img{
+    width: 100px;
+    margin-bottom: 20px;
+    height: 100pxpx;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.sidebar .heads{
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    font-family: 'Courier New', Courier, monospace;
+    align-items: center;
+    padding: 10px;
+    color: black;
+}
+.sidebar .menu{
+    list-style: none; 
+}
+
+.sidebar .menu li{
+    margin-bottom: 20px;
+}
+.sidebar .menu li a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 4px;
+}
+.sidebar .menu li span{
+    margin-left: 8px;
+
+}
+.sidebar .menu li a img{
+    width: 25px;
+    height: 25px;
+}
+.sidebar .menu li a:hover{
+    background-color: rgb(252, 252, 252);
+    border-radius: 30px;
+    
+}
+.sidebar .menu li a.active{
+    background-color: rgb(252, 252, 252);
+    border-radius: 30px;
+    
+}
+
+.main-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    height: 100vh; 
+    overflow: auto;
+}
+.topbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: rgb(203, 230, 246);
+    box-shadow: rgba(0, 0, 0, 0.35);
+    color: rgb(250, 202, 202);
+}
+.topbar .search input{
+    width: 250px;
+    padding: 10px;
+    border: 10px solid #f4f4f4;
+    border-radius: 20px;
+    height: 10px;
+}
+.topbar .user-profile{
+    display: flex;
+    align-items: center;
+    color: black;
+}
+.topbar .user-profile img{
+    margin-left: 10px;
+    border-radius: 50%;
+}
+.content {
+    flex: 1;
+    padding: 20px;
+}
+.stars {
+    color: #ffd700;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+CSS
+/* Show the form when targeted */
+#addUserForm:target {
+    display: flex;
+}

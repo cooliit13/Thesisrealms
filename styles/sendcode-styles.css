@@ -1,0 +1,149 @@
+/* styles/style.css */
+
+body {
+  background-color: #E3DCD9;
+  font-family: 'Segoe UI', sans-serif;
+  color: #000000;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  animation: fadeIn 1s ease-in;
+}
+
+.container {
+  background-color: #581413;
+  padding: 1.5rem 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  max-width: 340px;
+  width: 90%;
+  animation: popIn 0.8s ease-out;
+}
+
+.logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 15px;
+  animation: floatLogo 2.5s ease-in-out infinite;
+}
+
+h5 {
+  color: #FFFFFF;
+  font-weight: 300;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+/* Alerts */
+.alert {
+  width: 100%;
+  margin: 0.8rem 0;
+  padding: 0.6rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: #FFFFFF;
+  animation: shake 0.4s ease-in-out;
+  box-sizing: border-box;
+}
+
+.alert-danger {
+  background-color: #8B0000;
+}
+
+.alert-success {
+  background-color: #2e7d32;
+}
+
+.alert-info {
+  background-color: #D97706;
+}
+
+/* Form */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Input Field */
+input[type="text"] {
+  padding: 0.6rem;
+  border-radius: 10px;
+  border: none;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  outline: none;
+  width: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  box-sizing: border-box;
+  background-color: #FFFFFF;
+  color: #000000;
+}
+
+input[type="text"]:focus {
+  transform: scale(1.02);
+}
+
+/* Submit Button */
+button {
+  background-color: #D97706;
+  color: #FFFFFF;
+  border: none;
+  padding: 0.7rem;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  width: 100%;
+  cursor: pointer;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-sizing: border-box;
+}
+
+button:hover {
+  background-color: #b66204;
+  transform: scale(1.02);
+}
+
+/* Animations */
+@keyframes floatLogo {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-4px); }
+  50% { transform: translateX(4px); }
+  75% { transform: translateX(-4px); }
+  100% { transform: translateX(0); }
+}

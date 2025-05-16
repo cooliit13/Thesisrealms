@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="styles/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scales=1.0">
+    <link rel="icon" type="images/png" href="../images/Screenshot 2025-02-04 082940.png">
+    <link rel="stylesheet" href="../bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/css/bootstrap.min.css"> <!-- Bootstrap Link-->
+    <title>Report</title>
+</head>
+
+<body>
+    <div class="dashboard">
+        <div class="sidebar">
+            <div class="heads"> R E P O R T S
+                <img src="../images/lgo (1).png" alt="logo">
+            </div>
+            <ul class="menu">
+                <li>
+                    <a href="index.html">
+                        <img src="../images/dashboard.png" alt="dashboard">
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="products.html">
+                        <img src="../images/products.png" alt="dashboard">
+                        <span>Products</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="reports.html" class="active">
+                        <img src="../images/reports.png" alt="dashboard">
+                        <span>Reports</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="accounts.html">
+                        <img src="../images/avatar.png" alt="dashboard">
+                        <span>Accounts</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="settings.html">
+                        <img src="../images/cog.244x256.png" alt="dashboard">
+                        <span>Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../login.html">
+                        <img src="../images/logout.png" alt="dashboard">
+                        <span>Log Out</span>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+        <!-- Report Area -->
+        <div class="main-content">
+
+            <div class="topbar">
+                <div class="search">
+                    <input type="text" placeholder="Search. . . -">
+                </div>
+
+                <div class="user-profile">
+                    <span>Butch Sagayoc</span>
+                    <img src="../images/Screenshot 2025-02-04 084635.png" alt="">
+
+                </div>
+            </div>
+            <div class="content">
+                <div class="container text-center">
+                    <h1>Welcome to the Reports</h1>
+                </div>
+                <table class="table">
+                    <thead class="table-light">
+                        <tr>
+                            <th scope="col">Item #</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">11101</th>
+                            <td>Nike Ambush</td>
+                            <td>$700</td>
+                            <td>2</td>
+                            <td>$1400</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">1301</th>
+                            <td>G Shock Watch</td>
+                            <td>$150</td>
+                            <td>1</td>
+                            <td>$150</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">110223</th>
+                            <td>LA Cap</td>
+                            <td>$90</td>
+                            <td>3</td>
+                            <td>$270</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th colspan="4" style="text-align:right;">Grand Total:</th>
+                            <th>$1,820</th>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div class="text-end mt-3">
+                    <button onclick="window.print()" class="btn btn-primary">Print Report</button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,124 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  background-color: #E3DCD9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Container & Card */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  background-color: #581413;
+  color: #FFFFFF;
+  border-radius: 15px;
+  padding: 30px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  animation: fadeInCard 0.7s ease-in-out;
+}
+
+@keyframes fadeInCard {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Logo */
+.logo {
+  width: 140px;
+  height: auto;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  animation: floatLogo 2s ease-in-out infinite;
+}
+
+@keyframes floatLogo {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Form Inputs */
+form .form-control {
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: slideIn 0.5s ease forwards;
+  opacity: 0;
+  width: 90%;
+
+}
+
+form .form-control:nth-child(1) { animation-delay: 0.2s; }
+form .form-control:nth-child(2) { animation-delay: 0.3s; }
+form .form-control:nth-child(3) { animation-delay: 0.4s; }
+form .form-control:nth-child(4) { animation-delay: 0.5s; }
+form .form-control:nth-child(5) { animation-delay: 0.6s; }
+form .form-control:nth-child(6) { animation-delay: 0.7s; }
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+form .form-control:focus {
+  outline: none;
+  box-shadow: 0 0 5px #D97706;
+  transform: scale(1.02);
+}
+
+/* Button */
+button[type="submit"] {
+  background-color: #D97706;
+  border: none;
+  color: #FFFFFF;
+  padding: 10px 20px;
+  border-radius: 8px;
+  width: 90%;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+button[type="submit"]:hover {
+  background-color: #b86104;
+  transform: translateY(-2px);
+}
+
+/* Link */
+p {
+  margin-top: 15px;
+  color: #FFFFFF;
+}
+
+p a {
+  color: #FFFFFF;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+p a:hover {
+  color: #D97706;
+}

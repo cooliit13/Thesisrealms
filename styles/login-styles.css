@@ -1,0 +1,195 @@
+/* General page background */
+body {
+  background-color: #E3DCD9;
+  font-family: Arial, sans-serif;
+  color: #000000;
+  margin: 0;
+  padding: 0;
+}
+
+/* Center container with fade-in effect */
+.container {
+  max-width: 400px;
+  background-color: #581413;
+  padding: 30px 25px;
+  border-radius: 20px;
+  margin: 60px auto;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  color: #FFFFFF;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.card {
+  background-color: #581413;
+  color: #FFFFFF;
+  border-radius: 15px;
+  padding: 30px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  animation: fadeInCard 0.7s ease-in-out;
+}
+
+/* Logo with subtle scale animation */
+.logo {
+  width: 140px;
+  height: auto;
+  margin-bottom: 15px;
+  margin-top: 10px;
+  animation: floatLogo 2s ease-in-out infinite;
+}
+
+@keyframes floatLogo {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+
+/* Heading */
+h2 {
+  font-weight: bold;
+  margin-bottom: 25px;
+  animation: fadeIn 1.2s ease-in;
+}
+
+/* Input fields with focus effect */
+form input[type="text"],
+form input[type="password"] {
+  background-color: #FFFFFF;
+  color: #000000;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 15px;
+  margin-bottom: 15px;
+  width: 90%;
+  transition: box-shadow 0.3s ease;
+}
+
+form input[type="text"]:focus,
+form input[type="password"]:focus {
+  box-shadow: 0 0 0 3px #D97706AA;
+  outline: none;
+}
+
+/* Button styling with hover scale */
+.btn-primary {
+  background-color: #D97706;
+  border: none;
+  border-radius: 8px;
+  color: #FFFFFF;
+  font-weight: bold;
+  padding: 10px;
+  font-size: 16px;
+  width: 90%;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #b35f04;
+  transform: scale(1.02);
+}
+
+/* Google button animation */
+.btn-outline-danger {
+  color: #FFFFFF;
+  border-color: #FFFFFF;
+  margin-top: 10px;
+  width: 90%;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-outline-danger:hover {
+  background-color: #c23321;
+  color: #FFFFFF;
+  transform: scale(1.02);
+}
+
+/* Text links */
+p, a {
+  color: #FFFFFF;
+  font-size: 14px;
+}
+
+a {
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #D97706;
+}
+
+/* Alert boxes with fade-in effect */
+.alert-danger {
+  color: #FFFFFF;
+  background-color: #B91C1C; /* red */
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  animation: fadeIn 0.8s ease;
+}
+
+.alert-success {
+  color: #FFFFFF;
+  background-color: #15803D; /* green */
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  animation: fadeIn 0.8s ease;
+}
+
+
+/* Recaptcha centered */
+.g-recaptcha {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+/* ========== Animations ========== */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes logoPop {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="styles/style.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scales=1.0">
+    <link rel="icon" type="images/png" href="../images/Screenshot 2025-02-04 082940.png">
+    <link rel="stylesheet" href="../bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/css/bootstrap.min.css"> <!-- Bootstrap Link-->
+    <title>Products</title>
+</head>
+
+<body>
+    <!-- PRODUCT-->
+    <div class="dashboard">
+        <div class="sidebar">
+            <div class="heads"> P R O D U C T
+                <img src="../images/lgo (1).png" alt="logo">
+            </div>
+            <ul class="menu">
+                <li>
+                    <a href="index.html">
+                        <img src="../images/dashboard.png" alt="dashboard">
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="products.html" class="active">
+                        <img src="../images/products.png" alt="dashboard">
+                        <span>Products</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="reports.html">
+                        <img src="../images/reports.png" alt="dashboard">
+                        <span>Reports</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="accounts.html">
+                        <img src="../images/avatar.png" alt="dashboard">
+                        <span>Accounts</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="settings.html">
+                        <img src="../images/cog.244x256.png" alt="dashboard">
+                        <span>Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../login.html">
+                        <img src="../images/logout.png" alt="dashboard">
+                        <span>Log Out</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="main-content">
+
+            <div class="topbar">
+                <div class="search">
+                    <input type="text" placeholder="Search. . . -">
+                </div>
+                <div class="user-profile">
+                    <span>Butch Sagayoc</span>
+                    <img src="../images/Screenshot 2025-02-04 084635.png" alt="">
+                </div>
+            </div>
+                <!-- Product Area -->
+            <div class="content">
+                <div class="container text-center">
+                    <h1>Welcome to the Product</h1>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                                <img src="../images/cap.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">LA Cap</h5>
+                                    <p class="card-text">A stylish cap made with high-quality materials, perfect for casual wear and outdoor activities.</p>
+                                    <p class="card-text"><strong>Price: $90</strong></p>
+                                    <div class="stars">
+                                        ★★★★☆
+                                    </div>
+                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                                <img src="../images/EP.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Earpods Pro Max Ultra</h5>
+                                    <p class="card-text">High-performance wireless earbuds with noise-cancellation technology for a premium audio experience.</p>
+                                    <p class="card-text"><strong>Price: $199</strong></p>
+                                    <div class="stars">
+                                        ★★★★★
+                                    </div>
+                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                                <img src="../images/Gsh.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Gshock Submarine</h5>
+                                    <p class="card-text">A durable, water-resistant watch just like submarine, designed for extreme conditions and stylish everyday use.</p>
+                                    <p class="card-text"><strong>Price: $150</strong></p>
+                                    <div class="stars">
+                                        ★★★★☆
+                                    </div>
+                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card" style="box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;">
+                                <img src="../images/Shoes.jpg" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Nike Ambush</h5>
+                                    <p class="card-text">A sleek and modern pair of shoes combining cutting-edge design with unmatched comfort and durability.</p>
+                                    <p class="card-text"><strong>Price: $700</strong></p>
+                                    <div class="stars">
+                                        ★★★★★
+                                    </div>
+                                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add New Account Button -->
+                    <div class="d-flex justify-content-center mt-4">
+                        <a href="#addUserForm" class="btn" style="background-color: #0a447e; color: white; margin-top: 10px; margin-bottom: 10px;">Add New User?</a>
+                    </div>
+
+                    <!-- Add New User Form -->
+                    <div id="addUserForm" class="container d-flex justify-content-center align-items-center form-container">
+                        <div class="card user-card p-4" style="width: 30rem; margin-top: 50px;">
+                            <h2 class="text-center">Add New User</h2>
+                            <form action="accounts.html" method="POST" enctype="multipart/form-data">
+                                <div class="mb-3 text-center">
+                                    <label for="profilePic" class="form-label">Product Name</label>
+                                    <input type="file" class="form-control" id="productName" name="productName" accept="image/*" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="fullName" class="form-label">Product Price</label>
+                                    <input type="text" class="form-control" id="productPrice" name="productPrice" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="studentID" class="form-label">Product Description</label>
+                                    <input type="text" class="form-control" id="pDescription" name="pDescription" required>
+                                </div>
+                                
+                            </form>
+
+</body>
+</html>

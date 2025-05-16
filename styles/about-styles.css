@@ -1,0 +1,251 @@
+/* =======================
+   Global Styles
+========================== */
+body {
+  background-color: #E3DCD9;
+  margin: 0;
+  padding: 0;
+  animation: fadeIn 1s ease-in;
+  font-family: "Segoe UI", sans-serif;
+  color: #000000;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #E3DCD9;
+  color: #000000;
+}
+
+header {
+  background-color: #581413;
+  color: #FFFFFF;
+  padding: 15px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+}
+
+header .logo img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+header .logo span {
+  font-weight: normal;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  animation: fadeInDown 1.2s ease-in-out;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  color: #FFFFFF;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+nav ul li a:hover {
+  color: #D97706;
+}
+
+/* =======================
+   Developer Section Layout
+========================== */
+.developers-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px 20px;
+}
+
+/* ============================
+   Developer Card Enhancements
+============================ */
+.developer-card {
+  background-color: #FFFFFF;
+  color: #000000;
+  padding: 25px 20px;
+  border-radius: 20px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: cardFadeIn 0.8s ease forwards;
+  opacity: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.developer-card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Gradient Border Animation on Hover */
+.developer-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 3px;
+  background: linear-gradient(45deg, #581413, #E3DCD9, #581413);
+
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.developer-card:hover::before {
+  opacity: 1;
+}
+
+/* Developer Image */
+.developer-img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border-radius: 50%;
+  border: 3px solid #581413;
+}
+
+/* Developer Role */
+.developer-role {
+  font-weight: bold;
+  color: #581413;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+/* Background Themes */
+.armando-card,
+.kate-card,
+.janus-card {
+  background-color: #FFFFFF;
+}
+
+/* =======================
+   Social Media Links
+========================== */
+.social-links {
+  margin-top: 15px;
+}
+
+.social-links a {
+  display: inline-block;
+  margin: 5px 10px;
+  background-color: #E3DCD9;
+  color: #581413;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+  background-color: #581413;
+  color: #FFFFFF;
+  transform: scale(1.1);
+}
+
+
+/* =======================
+   Footer
+========================== */
+footer {
+  background-color: #581413;
+  color: #FFFFFF;
+  padding: 15px 0;
+  margin-top: 40px;
+  animation: fadeIn 2s ease;
+  text-align: center;
+}
+
+/* =======================
+   Animations
+========================== */
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-60px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* =======================
+   Responsive Design
+========================== */
+@media (max-width: 768px) {
+  .developers-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
