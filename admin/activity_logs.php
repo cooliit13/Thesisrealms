@@ -6,6 +6,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+//kayaos ni 
+
 // Fetch recent activity logs
 $activityQuery = "SELECT username, action, created_at, status FROM activity_logs ORDER BY created_at DESC";
 $activityResult = $conn->query($activityQuery);
