@@ -11,25 +11,6 @@ if (!isset($_SESSION['user_id'])) {
   exit();
 }
 
-// Get the active user from session
-$activeUser = isset($_SESSION['username']) ? $_SESSION['username'] : 'Guest';
-$profileImage = '../assets/images/default_avatar.png'; // fallback image
-
-if (isset($_SESSION['user_id'])) {
-    $userId = $_SESSION['user_id'];
-    $stmt = $conn->prepare("SELECT profile_picture FROM user WHERE id = ?");
-if (!$stmt) {
-    die("Prepare failed: " . $conn->error);
-}
-$stmt->bind_param("i", $userId);
-$stmt->execute();
-$stmt->bind_result($fetchedImage);
-if ($stmt->fetch() && !empty($fetchedImage)) {
-    $profileImage = '../uploads/profile_pictures/' . $fetchedImage;
-}
-$stmt->close();
-
-}
 
 // Function to count records safely
 function getCount($conn, $query) {
@@ -45,6 +26,7 @@ function getCount($conn, $query) {
 $activeUsers = getCount($conn, "SELECT COUNT(*) AS count FROM users WHERE status='active'");
 $thesisSubmitted = getCount($conn, "SELECT COUNT(*) AS count FROM uploads");
 $approvedTheses = getCount($conn, "SELECT COUNT(*) AS count FROM uploads WHERE status='approved'");
+$rejectedTheses = getCount($conn, "SELECT COUNT(*) AS count FROM uploads WHERE status='rejected'");
 $pendingReviews = getCount($conn, "SELECT COUNT(*) AS count FROM uploads WHERE status='pending'");
 
 $recentActivityQuery = "SELECT id, username, action, created_at, status FROM activity_logs ORDER BY created_at DESC LIMIT 10";
@@ -60,16 +42,16 @@ $recentActivityResult = $conn->query($recentActivityQuery);
   <link rel="stylesheet" href="../bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="style.css">
-  <title>Admin Dashboard | Thesis Realm</title>
+  <title>Admin Dashboard | Capstone Repository</title>
 </head>
 <body>
   <div class="app-container">
     <div class="top-bar">
       <h5 class="mb-0">Thesis Realm Admin</h5>
-      <div class="user-profile">
-        <img src="<?= $profileImage ?>" alt="Admin User" style="width: 40px; height: 40px; object-fit: cover; border-radius: 50%;">
-        <span><?= htmlspecialchars($activeUser); ?></span>
-      </div>
+       <div class="user-profile">
+                <img src="../assets/images/464677697_444110865091918_7101498701914949461_n.jpg" alt="Admin User" />
+                <span>Admin User</span>
+            </div>
     </div>
 
     <div class="main-wrapper">
@@ -77,17 +59,15 @@ $recentActivityResult = $conn->query($recentActivityQuery);
         <div class="sidebar-header">
           <div class="sidebar-logo text-center py-3">
             <img src="../assets/images/COTLOGO.png" alt="Thesis Realm Logo" class="img-fluid" style="max-width: 150px;">
-            <h6 class="mt-2 text-center">Thesis Realm Admin</h6>
+            <h6 class="mt-2 text-center">Capstone Repository Admin</h6>
           </div>
         </div>
         <div class="sidebar-menu">
           <a href="index.php" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
           <a href="users.php"><i class="fas fa-users"></i> User Management</a>
-          <a href="#"><i class="fas fa-file-alt"></i> Thesis Management</a>
+            <a href="capstone-management.php" style="font-size: 0.9em;"><i class="fas fa-file-alt"></i> Capstone Management</a>
           <a href="submissions.php"><i class="fas fa-tasks"></i> Submissions</a>
-          <a href="#"><i class="fas fa-chart-bar"></i> Reports & Analytics</a>
-          <a href="#"><i class="fas fa-cog"></i> System Settings</a>
-          <a href="#"><i class="fas fa-question-circle"></i> Help Center</a>
+          <a href="reports-analytics.php"><i class="fas fa-chart-bar"></i> Reports & Analytics</a>
           <div class="mt-auto p-3">
             <a href="\Sagayoc\login.php" class="btn btn-sm btn-danger w-100"><i class="fas fa-sign-out-alt"></i> Logout</a>
           </div>
@@ -114,9 +94,17 @@ $recentActivityResult = $conn->query($recentActivityQuery);
             <div class="stat-card">
               <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
               <div class="stat-number"><?= $approvedTheses ?></div>
-              <div class="stat-label">Approved Theses</div>
+              <div class="stat-label">Approved Capstone/Thesis</div>
             </div>
           </div>
+          <div class="stat-card-col">
+  <div class="stat-card">
+    <div class="stat-icon"><i class="fas fa-times-circle text-danger"></i></div>
+    <div class="stat-number"><?= $rejectedTheses ?></div>
+    <div class="stat-label">Rejected Capstone/Thesis</div>
+  </div>
+</div>
+
           <div class="stat-card-col">
             <div class="stat-card">
               <div class="stat-icon"><i class="fas fa-clock"></i></div>

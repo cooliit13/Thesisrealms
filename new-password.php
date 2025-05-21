@@ -19,7 +19,7 @@ if (!isset($_SESSION['verified'])) {
 <body>
     <div class="container">
         <div class="card">
-            <img src="images/COTLOGO.png" alt="Logo" class="logo">
+            <img src="assets/images/COTLOGO.png" alt="Logo" class="logo">
             <h5>Set your new Password</h5>
 
             <!-- Show error if password doesn't match -->
@@ -52,16 +52,8 @@ if (!isset($_SESSION['verified'])) {
                 <div class="alert alert-success">
                     Code verified successfully! Please enter your new password.
                 </div>
-                <script>
-                    window.onload = function () {
-                        Swal.fire({
-                            title: 'Success!',
-                            text: 'Entered the code successfully, please enter your new password.',
-                            icon: 'success',
-                            confirmButtonText: 'OK'
-                        });
-                    };
-                </script>
+                
+                
                 <?php unset($_SESSION['code_success']); ?>
             <?php endif; ?>
 

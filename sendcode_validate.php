@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit();
     }
 
-    $stmt = $pdo->prepare("SELECT reset_code FROM users WHERE email = ?");
+    $stmt = $pdo->prepare("SELECT reset_code FROM user WHERE email = ?");
     $stmt->execute([$email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 

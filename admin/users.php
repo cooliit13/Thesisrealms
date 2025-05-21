@@ -78,13 +78,13 @@ if (isset($_POST['update_role'])) {
     <!-- DataTables v2.3.0 CSS -->
     <link rel="stylesheet" href="https://cdn.datatables.net/2.3.0/css/dataTables.bootstrap5.min.css" />
     <link rel="stylesheet" href="style.css" />
-    <title>Admin Dashboard | Thesis Realm</title>
+    <title>Admin Dashboard | Capstone Repository</title>
 </head>
 <body>
     <div class="app-container">
         <!-- Top Bar -->
         <div class="top-bar">
-            <h5 class="mb-0">Thesis Realm Admin</h5>
+          
             <div class="user-profile">
                 <img src="../assets/images/464677697_444110865091918_7101498701914949461_n.jpg" alt="Admin User" />
                 <span>Admin User</span>
@@ -102,19 +102,15 @@ if (isset($_POST['update_role'])) {
                             class="img-fluid"
                             style="max-width: 150px"
                         />
-                        <h6 class="mt-2 text-center">Thesis Realm Admin</h6>
+                        <h6 class="mt-2 text-center">Capstone Repository Admin</h6>
                     </div>
                 </div>
                 <div class="sidebar-menu">
-                    <a href="index.php">
-                        <i class="fas fa-tachometer-alt"></i> Dashboard
-                    </a>
-                    <a href="users.php"><i class="fas fa-users"></i> User Management</a>
-                    <a href="#"><i class="fas fa-file-alt"></i> Thesis Management</a>
-                    <a href="submissions.php"><i class="fas fa-tasks"></i> Submissions</a>
-                    <a href="#"><i class="fas fa-chart-bar"></i> Reports & Analytics</a>
-                    <a href="#"><i class="fas fa-cog"></i> System Settings</a>
-                    <a href="#"><i class="fas fa-question-circle"></i> Help Center</a>
+                    <a href="index.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+          <a href="users.php" class="active"><i class="fas fa-users"></i> User Management</a>
+          <a href="capstone-management.php" style="font-size: 0.9em;"><i class="fas fa-file-alt"></i> Capstone Management</a>
+          <a href="submissions.php"><i class="fas fa-tasks"></i> Submissions</a>
+          <a href="reports-analytics.php"><i class="fas fa-chart-bar"></i> Reports & Analytics</a>
                     <div class="mt-auto p-3">
                         <a href="\Sagayoc\login.php" class="btn btn-sm btn-danger w-100">
                             <i class="fas fa-sign-out-alt"></i> Logout
@@ -130,6 +126,23 @@ if (isset($_POST['update_role'])) {
                     <?php if (isset($_SESSION['error'])): ?>
                         <div class="alert alert-danger"><?php echo htmlspecialchars($_SESSION['error']); unset($_SESSION['error']); ?></div>
                     <?php endif; ?>
+                    <form method="GET" class="mb-3 d-flex" role="search" action="users.php">
+                        <input type="text" name="search" class="form-control me-2" placeholder="Search users or admin..." value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
+                        <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i> Search</button>
+                    </form>
+                    <?php
+                    // Search logic
+                    $search = '';
+                    if (isset($_GET['search']) && trim($_GET['search']) !== '') {
+                        $search = trim($_GET['search']);
+                        $stmt = $conn->prepare("SELECT * FROM user WHERE firstname LIKE ? OR lastname LIKE ? OR email LIKE ? OR role LIKE ?");
+                        $like = "%$search%";
+                        $stmt->bind_param("ssss", $like, $like, $like, $like);
+                        $stmt->execute();
+                        $result = $stmt->get_result();
+                        $stmt->close();
+                    }
+                    ?>
                     <table id="usersTable" class="table table-bordered table-striped">
                         <thead>
                             <tr>

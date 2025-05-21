@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id'])) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>College of Technologies Thesis Realm</title>
+  <title>BukSu COT: Capstone Repository</title>
   <link rel="stylesheet" href="../bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="../styles/index-styles.css">
@@ -20,7 +20,7 @@ if (!isset($_SESSION['user_id'])) {
 <header>
   <div class="logo">
     <img src="../assets/images/COTLOGO.png" alt="Logo">
-    <span>College of Technologies Thesis Realm</span>
+    <span>BukSu COT: Capstone Repository</span>
   </div>
   <nav>
     <ul>
@@ -34,7 +34,7 @@ if (!isset($_SESSION['user_id'])) {
 
 <!-- Main Banner Section (Similar to the image) -->
 <div class="main-banner">
-  <h1>DIGITAL ARCHIVES @ COT</h1>
+  <h1>BukSU COT: CAPSTONE REPOSITORY</h1>
   <p>is the official Institutional Repository of the College of Technologies
     and as the flagship department, it is also in charge of the permanent records of the
     offices of the BukSU System. It identifies, acquires, maintains, preserves, and allows
@@ -50,7 +50,7 @@ if (!isset($_SESSION['user_id'])) {
     
     <div class="contact-content">
       <p class="contact-intro">
-        Digital Archives @ COT is hosted and maintained by the College of Technologies,
+        BuKSU COT: Capstone Repository is hosted and maintained by the College of Technologies,
         Bukidnon State University.
       </p>
       
@@ -58,7 +58,7 @@ if (!isset($_SESSION['user_id'])) {
         <div class="contact-item">
           <span class="contact-label"><i class="bi bi-geo-alt-fill"></i> Address</span>
           <span class="contact-divider">:</span>
-          <span class="contact-value">College of Technologies Building, Bukidnon State University, Fortich Street, Malaybalay City 8700</span>
+          <span class="contact-value">College of Technologies Department, Bukidnon State University, Fortich Street, Malaybalay City 8700</span>
         </div>
         
         <div class="contact-item">
@@ -71,8 +71,8 @@ if (!isset($_SESSION['user_id'])) {
           <span class="contact-label"><i class="bi bi-envelope-fill"></i> Email</span>
           <span class="contact-divider">:</span>
           <span class="contact-value">
-            library.cot@buksu.edu.ph<br>
-            digitalarchives.cot@buksu.edu.ph
+            buksucot.capstonerepository@gmail.com<br>
+           
           </span>
         </div>
         
@@ -86,9 +86,7 @@ if (!isset($_SESSION['user_id'])) {
   </div>
 </div>
 
-<footer>
-   &copy; 2025 Bukidnon State University – College of Technologies. All rights reserved. 
-</footer>
+
 
 <script src="../bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
 </body>

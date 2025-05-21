@@ -1,195 +1,207 @@
-/* General page background */
-body {
-  background-color: #E3DCD9;
-  font-family: Arial, sans-serif;
-  color: #000000;
-  margin: 0;
-  padding: 0;
-}
+* {
+            box-sizing: border-box;
+        }
 
-/* Center container with fade-in effect */
-.container {
-  max-width: 400px;
-  background-color: #581413;
-  padding: 30px 25px;
-  border-radius: 20px;
-  margin: 60px auto;
-  text-align: center;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  color: #FFFFFF;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease-out forwards;
-}
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", sans-serif;
+            background-color: #E3DCD9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
 
-.card {
-  background-color: #581413;
-  color: #FFFFFF;
-  border-radius: 15px;
-  padding: 30px;
-  width: 100%;
-  max-width: 400px;
-  text-align: center;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-  animation: fadeInCard 0.7s ease-in-out;
-}
+        .container {
+            display: flex;
+            background: #fff;
+            width: 900px;
+            max-width: 95%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
 
-/* Logo with subtle scale animation */
-.logo {
-  width: 140px;
-  height: auto;
-  margin-bottom: 15px;
-  margin-top: 10px;
-  animation: floatLogo 2s ease-in-out infinite;
-}
+        .left {
+            flex: 1;
+            background: #581413;
+            color: #FFFFFF;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
 
-@keyframes floatLogo {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-5px);
-  }
-}
+        .left img.logo {
+            width: 150px;
+            margin-bottom: 20px;
+        }
 
+        .left h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
 
-/* Heading */
-h2 {
-  font-weight: bold;
-  margin-bottom: 25px;
-  animation: fadeIn 1.2s ease-in;
-}
+        .left p {
+            line-height: 1.6;
+        }
 
-/* Input fields with focus effect */
-form input[type="text"],
-form input[type="password"] {
-  background-color: #FFFFFF;
-  color: #000000;
-  border: none;
-  border-radius: 8px;
-  padding: 10px 12px;
-  font-size: 15px;
-  margin-bottom: 15px;
-  width: 90%;
-  transition: box-shadow 0.3s ease;
-}
+        .right {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #000000;
+        }
 
-form input[type="text"]:focus,
-form input[type="password"]:focus {
-  box-shadow: 0 0 0 3px #D97706AA;
-  outline: none;
-}
+        .right h2 {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
 
-/* Button styling with hover scale */
-.btn-primary {
-  background-color: #D97706;
-  border: none;
-  border-radius: 8px;
-  color: #FFFFFF;
-  font-weight: bold;
-  padding: 10px;
-  font-size: 16px;
-  width: 90%;
-  margin-top: 10px;
-  margin-bottom: 15px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
+        form input[type="text"],
+        form input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
 
-.btn-primary:hover {
-  background-color: #b35f04;
-  transform: scale(1.02);
-}
+        .remember {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 10px 0;
+            color: #000000;
+        }
 
-/* Google button animation */
-.btn-outline-danger {
-  color: #FFFFFF;
-  border-color: #FFFFFF;
-  margin-top: 10px;
-  width: 90%;
-  font-weight: bold;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
+        .remember label {
+            display: flex;
+            align-items: center;
+        }
 
-.btn-outline-danger:hover {
-  background-color: #c23321;
-  color: #FFFFFF;
-  transform: scale(1.02);
-}
+        .remember input {
+            margin-right: 6px;
+        }
 
-/* Text links */
-p, a {
-  color: #FFFFFF;
-  font-size: 14px;
-}
+        .forgot-link {
+            font-size: 14px;
+            text-decoration: none;
+            color: #D97706;
+        }
 
-a {
-  text-decoration: underline;
-  transition: color 0.2s ease;
-}
+        button[type="submit"] {
+            width: 100%;
+            background-color: #581413;
+            color: #FFFFFF;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-a:hover {
-  color: #D97706;
-}
+        button[type="submit"]::before {
+            content: '';
+            background: url('assets/images/login-icon.png') no-repeat center center;
+            background-size: 20px;
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            display: inline-block;
+        }
 
-/* Alert boxes with fade-in effect */
-.alert-danger {
-  color: #FFFFFF;
-  background-color: #B91C1C; /* red */
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  animation: fadeIn 0.8s ease;
-}
+        .google-btn {
+            width: 100%;
+            margin-top: 10px;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            border: 1px solid #333;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #000000;
+            background: #fff;
+        }
 
-.alert-success {
-  color: #FFFFFF;
-  background-color: #15803D; /* green */
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  animation: fadeIn 0.8s ease;
-}
+        .google-btn img {
+            width: 20px;
+            margin-right: 10px;
+        }
 
+        .g-recaptcha {
+            margin: 10px 0;
+        }
 
-/* Recaptcha centered */
-.g-recaptcha {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 15px;
-}
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+        }
 
-/* ========== Animations ========== */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background-color: #ccc;
+        }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
+        .divider span {
+            padding: 0 10px;
+            color: #999;
+        }
 
-@keyframes logoPop {
-  0% {
-    transform: scale(0.9);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
+        .signup-text {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .signup-text a {
+            color: #D97706;
+            text-decoration: none;
+        }
+
+        .alert-error {
+            padding: 10px;
+            background-color: #f8d7da;
+            color: #581413;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .alert-success {
+            padding: 10px;
+            background-color: #d4edda;
+            color: #155724;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .left, .right {
+                flex: none;
+                width: 100%;
+                padding: 30px;
+            }
+        }

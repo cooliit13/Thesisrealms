@@ -31,13 +31,13 @@ function sendApprovalEmail($to, $filename) {
         $mail->Port       = $_ENV['MAIL_PORT'] ?? 587;
 
         // Recipients
-        $mail->setFrom($_ENV['MAIL_FROM_ADDRESS'] ?? 'noreply@thesisrealm.com', 
-                      $_ENV['MAIL_FROM_NAME'] ?? 'BukSU Cot Thesis Realm');
+        $mail->setFrom($_ENV['MAIL_FROM_ADDRESS'] ?? 'noreply@capstonerepository.com', 
+                      $_ENV['MAIL_FROM_NAME'] ?? 'BukSU COT: Capstone Repository');
         $mail->addAddress($to);
 
         // Content
         $mail->isHTML(true);
-        $mail->Subject = "Thesis Submission Approved - Thesis Realm";
+        $mail->Subject = "Thesis Submission Approved - BukSU COT: Capstone Repository";
         
         $mail->Body = "
         <html>
@@ -62,7 +62,7 @@ function sendApprovalEmail($to, $filename) {
                     <p>Your thesis is now available in our repository and accessible to other users according to our access policies.</p>
                     <p>Thank you for contributing to our academic community.</p>
                     <p>If you have any questions or need assistance, please contact our support team.</p>
-                    <p>Best regards,<br>Thesis Realm Administration</p>
+                    <p>Best regards,<br>BukSU COT: Capstone Repository Administration</p>
                 </div>
                 <div class='footer'>
                     <p>This is an automated message. Please do not reply to this email.</p>
@@ -97,13 +97,13 @@ function sendRejectionEmail($to, $filename, $reason = "Does not meet submission 
         $mail->Port       = $_ENV['MAIL_PORT'] ?? 587;
 
         // Recipients
-        $mail->setFrom($_ENV['MAIL_FROM_ADDRESS'] ?? 'noreply@thesisrealm.com', 
-                      $_ENV['MAIL_FROM_NAME'] ?? 'BukSU Cot Thesis Realm');
+        $mail->setFrom($_ENV['MAIL_FROM_ADDRESS'] ?? 'noreply@capstonerepository.com', 
+                      $_ENV['MAIL_FROM_NAME'] ?? 'BukSU COT: Capstone Repository');
         $mail->addAddress($to);
 
         // Content
         $mail->isHTML(true);
-        $mail->Subject = "Thesis Submission Rejected - Thesis Realm";
+        $mail->Subject = "Thesis Submission Rejected - BukSU COT: Capstone Repository";
         
         $mail->Body = "
         <html>
@@ -129,7 +129,7 @@ function sendRejectionEmail($to, $filename, $reason = "Does not meet submission 
                     <p>$reason</p>
                     <p>Please review the submission guidelines and consider uploading a revised version that meets our requirements.</p>
                     <p>If you have any questions or need assistance, please contact our support team.</p>
-                    <p>Best regards,<br>Thesis Realm Administration</p>
+                    <p>Best regards,<br>BukSU COT: Capstone Repository Administration</p>
                 </div>
                 <div class='footer'>
                     <p>This is an automated message. Please do not reply to this email.</p>
@@ -284,18 +284,17 @@ if (isset($_POST['delete_submission'])) {
     exit();
 }
 
-// Add a column for approval_message in your uploads table if it doesn't exist yet
-// ALTER TABLE uploads ADD COLUMN approval_message TEXT AFTER rejection_reason;
-
-// Fetch all uploaded files
-$result = $conn->query("SELECT * FROM uploads ORDER BY upload_date DESC");
+// Fetch all uploaded files - MODIFIED: Order pending first, then by upload date (newest first)
+$result = $conn->query("SELECT * FROM uploads ORDER BY 
+                       CASE WHEN status = 'Pending' THEN 0 ELSE 1 END, 
+                       upload_date DESC");
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Submissions | Thesis Realm</title>
+    <title>Admin Dashboard | Capstone Repository</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -306,7 +305,7 @@ $result = $conn->query("SELECT * FROM uploads ORDER BY upload_date DESC");
 <div class="app-container">
     <!-- Top Bar -->
     <div class="top-bar">
-        <h5 class="mb-0">Thesis Realm Admin</h5>
+        
         <div class="user-profile">
             <img src="../assets/images/464677697_444110865091918_7101498701914949461_n.jpg" alt="Admin User">
             <span>Admin User</span>
@@ -322,17 +321,15 @@ $result = $conn->query("SELECT * FROM uploads ORDER BY upload_date DESC");
             <div class="sidebar-header">
                 <div class="sidebar-logo text-center py-3">
                     <img src="../assets/images/COTLOGO.png" alt="Thesis Realm Logo" class="img-fluid" style="max-width: 150px;">
-                    <h6 class="mt-2 text-center">Thesis Realm Admin</h6>
+                    <h6 class="mt-2 text-center">Capstone Repository Admin</h6>
                 </div>
             </div>
             <div class="sidebar-menu">
                 <a href="index.php"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-                <a href="users.php"><i class="fas fa-users"></i> User Management</a>
-                <a href="#"><i class="fas fa-file-alt"></i> Thesis Management</a>
-                <a href="submissions.php" class="active"><i class="fas fa-tasks"></i> Submissions</a>
-                <a href="#"><i class="fas fa-chart-bar"></i> Reports & Analytics</a>
-                <a href="#"><i class="fas fa-cog"></i> System Settings</a>
-                <a href="#"><i class="fas fa-question-circle"></i> Help Center</a>
+          <a href="users.php"><i class="fas fa-users"></i> User Management</a>
+          <a href="capstone-management.php" style="font-size: 0.9em;"><i class="fas fa-file-alt"></i> Capstone Management</a>
+          <a href="submissions.php" class="active"><i class="fas fa-tasks"></i> Submissions</a>
+          <a href="reports-analytics.php"><i class="fas fa-chart-bar"></i> Reports & Analytics</a>
                 <div class="mt-auto p-3">
                     <a href="\Sagayoc\login.php" class="btn btn-sm btn-danger w-100">
                         <i class="fas fa-sign-out-alt"></i> Logout
@@ -345,7 +342,20 @@ $result = $conn->query("SELECT * FROM uploads ORDER BY upload_date DESC");
         <div class="content p-3 flex-grow-1 overflow-auto">
 
             <h3>Uploaded Thesis Submissions</h3>
-            
+
+            <!-- New Upload Notification -->
+            <?php
+            // Check if there are new (pending) submissions
+            $newUploadsResult = $conn->query("SELECT COUNT(*) AS new_count FROM uploads WHERE status = 'Pending'");
+            $newUploads = $newUploadsResult ? $newUploadsResult->fetch_assoc()['new_count'] : 0;
+            if ($newUploads > 0): ?>
+                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                    <i class="fas fa-bell"></i>
+                    There <?= $newUploads == 1 ? 'is' : 'are' ?> <strong><?= $newUploads ?></strong> new uploaded <?= $newUploads == 1 ? 'file' : 'files' ?> awaiting review.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endif; ?>
+
             <!-- Display any messages -->
             <?php if(isset($_SESSION['message'])): ?>
             <div class="alert alert-<?= $_SESSION['message_type'] ?> alert-dismissible fade show" role="alert">
@@ -360,11 +370,12 @@ $result = $conn->query("SELECT * FROM uploads ORDER BY upload_date DESC");
             ?>
             
             <!-- Table -->
-            <div class="table-responsive mt-3" style="max-height: 100vh; overflow-y: auto;">
-                <table class="table table-bordered table-striped" id="submissionTable">
+             
+            <div class="table-responsive mt-5">
+                <table class="table table-bordered table-striped">
                     <thead class="table-dark">
                         <tr>
-                            <th>ID</th>
+                            <th>#</th>
                             <th>Filename</th>
                             <th>Uploader</th>
                             <th>Email</th>
@@ -372,14 +383,17 @@ $result = $conn->query("SELECT * FROM uploads ORDER BY upload_date DESC");
                             <th>Department</th>
                             <th>Upload Date</th>
                             <th>Status</th>
-                            <th style="min-width: 160px;">Actions</th>
+                            <th style="min-width: 100px;">Actions</th>
                             <th>View</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php while ($row = $result->fetch_assoc()): ?>
+                        <?php 
+                        $row_number = 1; // Initialize row counter
+                        while ($row = $result->fetch_assoc()): 
+                        ?>
                             <tr>
-                                <td><?= $row['id'] ?></td>
+                                <td><?= $row_number++ ?></td>
                                 <td><?= htmlspecialchars($row['filename']) ?></td>
                                 <td><?= htmlspecialchars($row['uploaded_by']) ?></td>
                                 <td><?= htmlspecialchars($row['uploader_email']) ?></td>
@@ -388,11 +402,14 @@ $result = $conn->query("SELECT * FROM uploads ORDER BY upload_date DESC");
                                 <td><?= date('Y-m-d', strtotime($row['upload_date'])) ?></td>
                                 <?php
                                 $status = htmlspecialchars($row['status'] ?? 'Pending');
-                                $badgeClass = match($status) {
-                                    'Approved' => 'success',
-                                    'Rejected' => 'danger',
-                                    default => 'secondary', // Pending or other
-                                };
+                                // Set badge color: green for approved, red for rejected, gray for others
+                                if (strtolower($status) === 'approved') {
+                                    $badgeClass = 'success'; // green
+                                } elseif (strtolower($status) === 'rejected') {
+                                    $badgeClass = 'danger'; // red
+                                } else {
+                                    $badgeClass = 'secondary'; // gray for pending/other
+                                }
                                 ?>
                                 <td><span class="badge bg-<?= $badgeClass ?>"><?= $status ?></span></td>
                                 <td>
@@ -535,7 +552,9 @@ $result = $conn->query("SELECT * FROM uploads ORDER BY upload_date DESC");
                 lengthMenu: "Show _MENU_ submissions per page",
                 info: "Showing _START_ to _END_ of _TOTAL_ submissions",
                 emptyTable: "No submissions available"
-            }
+            },
+            // Disable initial sorting to preserve the server-side ordering
+            order: []
         });
         
         // Auto-dismiss alerts after 5 seconds

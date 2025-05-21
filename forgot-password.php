@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <body>
         <div class="container">
             <div class="card">
-            <img src="images/COTLOGO.png" alt="Logo" class="logo">
+            <img src="assets/images/COTLOGO.png" alt="Logo" class="logo">
             <h2>Please enter your Email to continue.</h2>
                     <?php if (isset($_SESSION['error'])):?>
                             <div class= "alert aler-danger" role="alert">

@@ -122,7 +122,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["logout"])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Your Account</title>
+    <title>BukSu COT: Capstone Repository</title>
     <link rel="stylesheet" href="/Sagayoc/bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
@@ -148,7 +148,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["logout"])) {
 <header>
 <h5>
             <img src="../assets/images/COTLOGO.png" alt="Logo" style="vertical-align: middle; height: 40px; padding-left: 10px; margin-top: 10px;">
-            College of Technologies Thesis Realm
+            BukSu COT: Capstone Repository
         </h5>
     <nav>
     <ul>
@@ -258,10 +258,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["logout"])) {
         </div>
     </div>
 </div>
-
-<footer class="text-center mt-5">
-    &copy; 2025 Bukidnon State University – College of Technologies. All rights reserved. 
-</footer>
 
 <script src="/Sagayoc/bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
 <script>

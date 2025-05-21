@@ -139,7 +139,7 @@ if ($stmt = $mysqli->prepare($query)) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="../styles/files-styles.css">
-    <title>College of Technologies Thesis Realm</title>
+    <title>BukSu COT: Capstone Repository</title>
     <style>
         .department-card {
             cursor: pointer;
@@ -201,7 +201,7 @@ if ($stmt = $mysqli->prepare($query)) {
     <header>
         <h5>
             <img src="../assets/images/COTLOGO.png" alt="Logo" style="vertical-align: middle; height: 40px; padding-left: 10px; margin-top: 10px;">
-            College of Technologies Thesis Realm
+            BukSu COT: Capstone Repository
         </h5>
         <nav>
             <ul>
@@ -271,6 +271,12 @@ if ($stmt = $mysqli->prepare($query)) {
         <!-- Department Cards -->
         <div class="row mb-4">
             <div class="col-md-2 col-sm-4 mb-3">
+                <div class="card department-card text-center p-3 <?php echo (empty($departmentFilter)) ? 'active' : ''; ?>" onclick="filterByDepartment('')">
+                    <i class="fas fa-list fa-3x mb-2"></i>
+                    <h5>All</h5>
+                </div>
+            </div>
+            <div class="col-md-2 col-sm-4 mb-3">
                 <div class="card department-card text-center p-3 <?php echo ($departmentFilter === 'BSIT') ? 'active' : ''; ?>" onclick="filterByDepartment('BSIT')">
                     <i class="fas fa-laptop-code fa-3x mb-2"></i>
                     <h5>BSIT</h5>
@@ -300,12 +306,7 @@ if ($stmt = $mysqli->prepare($query)) {
                     <h5>BSFT</h5>
                 </div>
             </div>
-            <div class="col-md-2 col-sm-4 mb-3">
-                <div class="card department-card text-center p-3 <?php echo (empty($departmentFilter)) ? 'active' : ''; ?>" onclick="filterByDepartment('')">
-                    <i class="fas fa-list fa-3x mb-2"></i>
-                    <h5>All</h5>
-                </div>
-            </div>
+            
         </div>
 
         <!-- Thesis Grid -->
@@ -370,8 +371,6 @@ if ($stmt = $mysqli->prepare($query)) {
             window.location.href = '?department=' + department;
         }
     </script>
-    <footer class="text-center mt-5">
-        &copy; 2025 Bukidnon State University – College of Technologies. All rights reserved. 
-    </footer>
+    
 </body>
 </html>

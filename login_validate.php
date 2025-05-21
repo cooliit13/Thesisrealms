@@ -49,6 +49,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($user && password_verify($password, $user['password'])) {
+    if ($user['status'] !== 'active') {
+        $_SESSION['error'] = "Your account is not activated. Please check your email to activate your account.";
+        header('Location: login.php');
+        exit();
+    }
+
         // Update user login tracking
         try {
             $updateQuery = "UPDATE user SET 

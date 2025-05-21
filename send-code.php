@@ -14,7 +14,7 @@ session_start();
 <body>
     <div class="container">
         <div class="card">
-            <img src="images/COTLOGO.png" alt="Logo" class="logo">
+            <img src="assets/images/COTLOGO.png" alt="Logo" class="logo">
             <h5>Enter the code to continue.</h5>
 
             <!-- Display error message from session -->

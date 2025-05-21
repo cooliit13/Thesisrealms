@@ -7,7 +7,7 @@ session_start();
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>College of Technologies Thesis Realm</title>
+  <title>BukSu COT: Capstone Repository</title>
   <link rel="stylesheet" href="../bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="../styles/index-styles.css">
@@ -17,7 +17,7 @@ session_start();
 <header>
   <div class="logo">
     <img src="../assets/images/COTLOGO.png" alt="Logo">
-    <span>College of Technologies Thesis Realm</span>
+    <span>BukSu COT: Capstone Repository</span>
   </div>
   <nav>
     <ul>
@@ -30,7 +30,7 @@ session_start();
 
 <!-- Main Banner Section (Similar to the image) -->
 <div class="main-banner">
-  <h1>DIGITAL ARCHIVES @ COT</h1>
+  <h1>BukSu COT: CAPSTONE REPOSITORY</h1>
   <p>is the official Institutional Repository of the College of Technologies
     and as the flagship department, it is also in charge of the permanent records of the
     offices of the BukSU System. It identifies, acquires, maintains, preserves, and allows
@@ -46,7 +46,7 @@ session_start();
     
     <div class="contact-content">
       <p class="contact-intro">
-        Digital Archives @ COT is hosted and maintained by the College of Technologies,
+        BukSu COT: Capstone Repository is hosted and maintained by the College of Technologies,
         Bukidnon State University.
       </p>
       
@@ -82,9 +82,7 @@ session_start();
   </div>
 </div>
 
-<footer>
-   &copy; 2025 Bukidnon State University – College of Technologies. All rights reserved. 
-</footer>
+
 
 <script src="../bootstrap-5.3.3-dist/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
 </body>
